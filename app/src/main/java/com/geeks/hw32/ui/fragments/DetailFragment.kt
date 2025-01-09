@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.geeks.hw32.R
 import com.geeks.hw32.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
+    private val args by navArgs<DetailFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,12 +25,13 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupListeners()
+        getData()
     }
 
-    private fun setupListeners() {
-        binding.txtDetail.setOnClickListener{
-            findNavController().navigateUp()
-        }
+    private fun getData() = with(binding) {
+            val userDetailFragment = args.user
+            tvName.text = userDetailFragment?.name
+            tvEmail.text = userDetailFragment?.email
+            tvPassword.text = userDetailFragment?.password.toString()
     }
 }

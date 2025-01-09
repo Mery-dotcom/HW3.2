@@ -23,12 +23,5 @@ class ThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupListeners()
-    }
-
-    private fun setupListeners() {
-        binding.txtThird.setOnClickListener{
-            findNavController().navigate(R.id.action_thirdFragment_to_detailFragment)
-        }
     }
 }

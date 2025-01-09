@@ -12,7 +12,6 @@ import com.geeks.hw32.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     private lateinit var binding: FragmentSecondBinding
-    private val args by navArgs<SecondFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,13 +23,9 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getData()
+        setupListeners()
     }
 
-    private fun getData() = with(binding) {
-        val userSecondFragment = args.user
-        tvName.text = userSecondFragment.name
-        tvEmail.text = userSecondFragment.email
-        tvPassword.text = userSecondFragment.password
+    private fun setupListeners() {
     }
 }
